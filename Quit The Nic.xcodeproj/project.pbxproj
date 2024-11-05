@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D23D057B2CD80C820015DD26 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = D23D057A2CD80C820015DD26 /* DGCharts */; };
+		D266ABC12CD7F71D00C89AD0 /* UICircularProgressRing in Frameworks */ = {isa = PBXBuildFile; productRef = D266ABC02CD7F71D00C89AD0 /* UICircularProgressRing */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D266AA7A2CD7159A00C89AD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D266AA5B2CD7159900C89AD0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D266AA622CD7159900C89AD0;
+			remoteInfo = "Quit The Nic";
+		};
+		D266AA842CD7159A00C89AD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D266AA5B2CD7159900C89AD0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D266AA622CD7159900C89AD0;
+			remoteInfo = "Quit The Nic";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D266AA632CD7159900C89AD0 /* Quit The Nic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quit The Nic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D266AA792CD7159A00C89AD0 /* Quit The NicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quit The NicTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D266AA832CD7159A00C89AD0 /* Quit The NicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quit The NicUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D266AA8B2CD7159A00C89AD0 /* Exceptions for "Quit The Nic" folder in "Quit The Nic" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D266AA622CD7159900C89AD0 /* Quit The Nic */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D266AA652CD7159900C89AD0 /* Quit The Nic */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D266AA8B2CD7159A00C89AD0 /* Exceptions for "Quit The Nic" folder in "Quit The Nic" target */,
+			);
+			path = "Quit The Nic";
+			sourceTree = "<group>";
+		};
+		D266AA7C2CD7159A00C89AD0 /* Quit The NicTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Quit The NicTests";
+			sourceTree = "<group>";
+		};
+		D266AA862CD7159A00C89AD0 /* Quit The NicUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Quit The NicUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D266AA602CD7159900C89AD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D23D057B2CD80C820015DD26 /* DGCharts in Frameworks */,
+				D266ABC12CD7F71D00C89AD0 /* UICircularProgressRing in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D266AA762CD7159A00C89AD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D266AA802CD7159A00C89AD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D266AA5A2CD7159900C89AD0 = {
+			isa = PBXGroup;
+			children = (
+				D266AA652CD7159900C89AD0 /* Quit The Nic */,
+				D266AA7C2CD7159A00C89AD0 /* Quit The NicTests */,
+				D266AA862CD7159A00C89AD0 /* Quit The NicUITests */,
+				D266AA642CD7159900C89AD0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D266AA642CD7159900C89AD0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D266AA632CD7159900C89AD0 /* Quit The Nic.app */,
+				D266AA792CD7159A00C89AD0 /* Quit The NicTests.xctest */,
+				D266AA832CD7159A00C89AD0 /* Quit The NicUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D266AA622CD7159900C89AD0 /* Quit The Nic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D266AA8C2CD7159A00C89AD0 /* Build configuration list for PBXNativeTarget "Quit The Nic" */;
+			buildPhases = (
+				D266AA5F2CD7159900C89AD0 /* Sources */,
+				D266AA602CD7159900C89AD0 /* Frameworks */,
+				D266AA612CD7159900C89AD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D266AA652CD7159900C89AD0 /* Quit The Nic */,
+			);
+			name = "Quit The Nic";
+			packageProductDependencies = (
+				D266ABC02CD7F71D00C89AD0 /* UICircularProgressRing */,
+				D23D057A2CD80C820015DD26 /* DGCharts */,
+			);
+			productName = "Quit The Nic";
+			productReference = D266AA632CD7159900C89AD0 /* Quit The Nic.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D266AA782CD7159A00C89AD0 /* Quit The NicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D266AA912CD7159A00C89AD0 /* Build configuration list for PBXNativeTarget "Quit The NicTests" */;
+			buildPhases = (
+				D266AA752CD7159A00C89AD0 /* Sources */,
+				D266AA762CD7159A00C89AD0 /* Frameworks */,
+				D266AA772CD7159A00C89AD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D266AA7B2CD7159A00C89AD0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D266AA7C2CD7159A00C89AD0 /* Quit The NicTests */,
+			);
+			name = "Quit The NicTests";
+			packageProductDependencies = (
+			);
+			productName = "Quit The NicTests";
+			productReference = D266AA792CD7159A00C89AD0 /* Quit The NicTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D266AA822CD7159A00C89AD0 /* Quit The NicUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D266AA942CD7159A00C89AD0 /* Build configuration list for PBXNativeTarget "Quit The NicUITests" */;
+			buildPhases = (
+				D266AA7F2CD7159A00C89AD0 /* Sources */,
+				D266AA802CD7159A00C89AD0 /* Frameworks */,
+				D266AA812CD7159A00C89AD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D266AA852CD7159A00C89AD0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D266AA862CD7159A00C89AD0 /* Quit The NicUITests */,
+			);
+			name = "Quit The NicUITests";
+			packageProductDependencies = (
+			);
+			productName = "Quit The NicUITests";
+			productReference = D266AA832CD7159A00C89AD0 /* Quit The NicUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D266AA5B2CD7159900C89AD0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					D266AA622CD7159900C89AD0 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					D266AA782CD7159A00C89AD0 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = D266AA622CD7159900C89AD0;
+					};
+					D266AA822CD7159A00C89AD0 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = D266AA622CD7159900C89AD0;
+					};
+				};
+			};
+			buildConfigurationList = D266AA5E2CD7159900C89AD0 /* Build configuration list for PBXProject "Quit The Nic" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D266AA5A2CD7159900C89AD0;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D266ABBF2CD7F71D00C89AD0 /* XCRemoteSwiftPackageReference "UICircularProgressRing" */,
+				D23D055C2CD808C10015DD26 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D266AA642CD7159900C89AD0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D266AA622CD7159900C89AD0 /* Quit The Nic */,
+				D266AA782CD7159A00C89AD0 /* Quit The NicTests */,
+				D266AA822CD7159A00C89AD0 /* Quit The NicUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D266AA612CD7159900C89AD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D266AA772CD7159A00C89AD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D266AA812CD7159A00C89AD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D266AA5F2CD7159900C89AD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D266AA752CD7159A00C89AD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D266AA7F2CD7159A00C89AD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D266AA7B2CD7159A00C89AD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D266AA622CD7159900C89AD0 /* Quit The Nic */;
+			targetProxy = D266AA7A2CD7159A00C89AD0 /* PBXContainerItemProxy */;
+		};
+		D266AA852CD7159A00C89AD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D266AA622CD7159900C89AD0 /* Quit The Nic */;
+			targetProxy = D266AA842CD7159A00C89AD0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D266AA8D2CD7159A00C89AD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5Q295L8PC4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Quit The Nic/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "LRapps.Quit-The-Nic";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D266AA8E2CD7159A00C89AD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5Q295L8PC4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Quit The Nic/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "LRapps.Quit-The-Nic";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D266AA8F2CD7159A00C89AD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D266AA902CD7159A00C89AD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D266AA922CD7159A00C89AD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "LRapps.Quit-The-NicTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quit The Nic.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Quit The Nic";
+			};
+			name = Debug;
+		};
+		D266AA932CD7159A00C89AD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "LRapps.Quit-The-NicTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quit The Nic.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Quit The Nic";
+			};
+			name = Release;
+		};
+		D266AA952CD7159A00C89AD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "LRapps.Quit-The-NicUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Quit The Nic";
+			};
+			name = Debug;
+		};
+		D266AA962CD7159A00C89AD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "LRapps.Quit-The-NicUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Quit The Nic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D266AA5E2CD7159900C89AD0 /* Build configuration list for PBXProject "Quit The Nic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D266AA8F2CD7159A00C89AD0 /* Debug */,
+				D266AA902CD7159A00C89AD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D266AA8C2CD7159A00C89AD0 /* Build configuration list for PBXNativeTarget "Quit The Nic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D266AA8D2CD7159A00C89AD0 /* Debug */,
+				D266AA8E2CD7159A00C89AD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D266AA912CD7159A00C89AD0 /* Build configuration list for PBXNativeTarget "Quit The NicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D266AA922CD7159A00C89AD0 /* Debug */,
+				D266AA932CD7159A00C89AD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D266AA942CD7159A00C89AD0 /* Build configuration list for PBXNativeTarget "Quit The NicUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D266AA952CD7159A00C89AD0 /* Debug */,
+				D266AA962CD7159A00C89AD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D23D055C2CD808C10015DD26 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+		D266ABBF2CD7F71D00C89AD0 /* XCRemoteSwiftPackageReference "UICircularProgressRing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/luispadron/UICircularProgressRing";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D23D057A2CD80C820015DD26 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D23D055C2CD808C10015DD26 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+		D266ABC02CD7F71D00C89AD0 /* UICircularProgressRing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D266ABBF2CD7F71D00C89AD0 /* XCRemoteSwiftPackageReference "UICircularProgressRing" */;
+			productName = UICircularProgressRing;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D266AA5B2CD7159900C89AD0 /* Project object */;
+}
