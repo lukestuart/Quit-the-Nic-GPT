@@ -1,78 +1,132 @@
 import Foundation
 
 class OpenAIService {
-    private let apiKey = "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"  // Replace with your actual OpenAI API key
-    
+    private let apiKey = API KEY HERE  // Replace with your actual OpenAI API key
+   
+        
     func fetchQuitPlan(
         nicotineType: String,
         productType: String,
         brand: String,
         strength: String,
         dailyIntake: String,
+        specificDailyIntake: String,
         costRange: String,
         quitTimeline: String,
         completion: @escaping (String) -> Void
     ) {
         guard let url = URL(string: "https://api.openai.com/v1/chat/completions") else { return }
-        
+
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // Updated prompt with dosage and timeline consistency
+
+        // Define the duration in days based on the timeline
+        let durationInDays: Int
+        switch quitTimeline.lowercased() {
+        case "1 month":
+            durationInDays = 28
+        case "2 months":
+            durationInDays = 56
+        case "3 months":
+            durationInDays = 84
+        case "6 months":
+            durationInDays = 168
+        case "1 year":
+            durationInDays = 336
+        default:
+            durationInDays = 28 // Default to 1 month if unspecified
+        }
+
+        // Enhanced prompt to handle multiple timelines and specific requirements
         let prompt = """
-        You are a quit coach assistant. Please create a structured quit plan for a user based on these details:
-        - Nicotine type: \(nicotineType)
-        - Product type: \(productType)
-        - Brand: \(brand)
-        - Strength: \(strength)
-        - Daily intake: \(dailyIntake)
-        - Cost range: \(costRange)
-        - Desired quit timeline: \(quitTimeline)
+        You are an expert in creating structured, step-by-step quit plans tailored for nicotine users. Please generate a detailed quit plan in JSON format based on the following user details. 
 
-        The quit plan should follow these requirements:
-        1. **Overall Timeline Data**:
-           - Break down the timeline by weeks, reducing the daily nicotine usage progressively to zero.
-           - Each week should specify a target daily intake, with the usage amount decreasing steadily each week.
-           - The structure should start at the user's current daily intake level and reach zero at the end of the timeline.
-           - For example: Week 1: 10 uses per day, Week 2: 8 uses per day, Week 3: 6 uses per day, Week 4: 4 uses per day, Final Week: 0 uses per day.
+        ### Requirements:
+        1. **Duration**: The plan should cover exactly \(durationInDays) days, listing each day sequentially from Day 1 to Day \(durationInDays) with no skipped days.
+        2. **Reduction Guidelines**:
+           - **Dosage Reduction**: Gradually reduce the dosage only when a lower strength is available for the specified product and brand. For example, if starting at 8mg and lower strengths exist (e.g., 4mg, 2mg), step down to those strengths as part of the reduction.
+           - **Intake Reduction**: Reduce the daily intake gradually, without setting any day to 0 intake until the final day.
+           - **No Skipped Days**: Each day must be explicitly listed in the JSON, even if the intake remains the same across several days. 
+        3. **Structure**:
+           - **weekly_overview**: Provide an overview of each week, reducing the daily intake gradually, with examples like:
+             - "Week 1": "15 units at 8mg"
+             - "Week 2": "12 units at 8mg"
+             - Continue reducing intake until the final week, which should reach "0 units."
+           - **daily_goals**: List each day’s goal with:
+             - `target_intake`: The number of units and dosage for the day, e.g., "12 units at 4mg."
+             - `motivational_quote`: A unique motivational quote for that day.
+           - **JSON Structure**:
+             ```json
+             {
+               "quit_plan": {
+                 "duration": "\(durationInDays) days",
+                 "user_details": {
+                   "nicotine_type": "\(nicotineType)",
+                   "product_type": "\(productType)",
+                   "brand": "\(brand)",
+                   "starting_strength": "\(strength)",
+                   "daily_intake": "\(specificDailyIntake) units per day",
+                   "cost_range": "\(costRange)",
+                   "timeline": "\(quitTimeline)"
+                 },
+                 "weekly_overview": {
+                   "Week 1": "15 units at 8mg",
+                   "Week 2": "12 units at 8mg",
+                   ...
+                   "Final Week": "0 units"
+                 },
+                 "daily_goals": [
+                   { "Day 1": { "target_intake": "15 units at 8mg", "motivational_quote": "Stay strong!" } },
+                   { "Day 2": { "target_intake": "15 units at 8mg", "motivational_quote": "Keep going, you're doing great!" } },
+                   ...
+                   { "Day \(durationInDays)": { "target_intake": "0 units at 0mg", "motivational_quote": "Congratulations! You've reached your goal!" } }
+                 ]
+               }
+             }
+             ```
 
-        2. **Daily Goals**:
-           - Each day should provide:
-             - "Target Intake" (e.g., "10 uses")
-             - "Motivational Quote" (a supportive message)
-             - Optional "Nicotine Strength" that should decrease only towards the end of the plan.
+        ### User Information:
+           - **Nicotine Type**: \(nicotineType)
+           - **Product Type**: \(productType)
+           - **Brand**: \(brand)
+           - **Starting Strength**: \(strength)
+           - **Daily Intake**: \(specificDailyIntake)
+           - **Cost Range**: \(costRange)
+           - **Timeline**: \(quitTimeline)
 
-        3. **Format the response as JSON** with "Overall Timeline Data" and "Daily Goals" sections.
+        ### Important Notes:
+           - **Every Day Listed**: The `daily_goals` array must list every day sequentially from Day 1 to Day \(durationInDays) with no missing days. If a reduction in units does not occur, list the same target intake across consecutive days.
+           - **Ending at Zero**: Ensure that the final day (Day \(durationInDays)) is the only day with a target intake of "0 units."
+           - **Dosage Availability**: Use only the available dosages specific to this product and brand.
+           - **Return the result in JSON format** without any extra commentary or explanation.
         """
 
 
-        
+
         let body: [String: Any] = [
-            "model": "gpt-3.5-turbo",  // or "gpt-4" if you have access
+            "model": "gpt-4-0613",
             "messages": [
                 ["role": "system", "content": "You are a helpful assistant who provides structured, step-by-step quit plans."],
                 ["role": "user", "content": prompt]
             ],
-            "max_tokens": 3000  // Allow for a detailed plan
+            "max_tokens": 4000
         ]
-        
+
         request.httpBody = try? JSONSerialization.data(withJSONObject: body)
-        
+
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print("Error fetching data:", error ?? "Unknown error")
                 completion("Failed to retrieve quit plan.")
                 return
             }
-            
-            // Print the raw response for debugging
+
             if let jsonString = String(data: data, encoding: .utf8) {
                 print("Raw JSON response: \(jsonString)")
             }
-            
-            // Attempt to decode the response
+
             do {
                 let responseObject = try JSONDecoder().decode(OpenAIResponse.self, from: data)
                 let outputText = responseObject.choices.first?.message.content ?? ""
@@ -82,17 +136,18 @@ class OpenAIService {
                 completion("Failed to parse the quit plan response.")
             }
         }.resume()
-    }
     
-    struct OpenAIResponse: Codable {
-        let choices: [Choice]
+        }
+        
+        struct OpenAIResponse: Codable {
+            let choices: [Choice]
+        }
+        
+        struct Choice: Codable {
+            let message: Message
+        }
+        
+        struct Message: Codable {
+            let content: String
+        }
     }
-    
-    struct Choice: Codable {
-        let message: Message
-    }
-    
-    struct Message: Codable {
-        let content: String
-    }
-}

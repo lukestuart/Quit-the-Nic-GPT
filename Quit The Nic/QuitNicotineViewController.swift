@@ -94,7 +94,7 @@ class QuitNicotineViewController: UIViewController {
         setupUI()
         startApp()
     }
-
+    
     func setupGradientBackground() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [
@@ -107,7 +107,7 @@ class QuitNicotineViewController: UIViewController {
         gradientLayer.frame = view.bounds
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
-
+    
     func setupUI() {
         questionLabel = UILabel()
         questionLabel.textAlignment = .center
@@ -116,13 +116,13 @@ class QuitNicotineViewController: UIViewController {
         questionLabel.textColor = .white
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(questionLabel)
-
+        
         optionsStackView = UIStackView()
         optionsStackView.axis = .vertical
         optionsStackView.spacing = 10
         optionsStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(optionsStackView)
-
+        
         dailyLabel = UILabel()
         dailyLabel.textAlignment = .center
         dailyLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
@@ -147,16 +147,16 @@ class QuitNicotineViewController: UIViewController {
         dailyGoalButton.addTarget(self, action: #selector(showDailyGoal), for: .touchUpInside)
         dailyGoalButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(dailyGoalButton)
-
+        
         NSLayoutConstraint.activate([
             questionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             questionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             questionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-
+            
             optionsStackView.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 20),
             optionsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             optionsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-
+            
             dailyLabel.topAnchor.constraint(equalTo: optionsStackView.bottomAnchor, constant: 40),
             dailyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
@@ -167,14 +167,14 @@ class QuitNicotineViewController: UIViewController {
             dailyGoalButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
-
+    
     // MARK: - Start App
-
+    
     func startApp() {
         appState.step = 1
         renderQuestion()
     }
-
+    
     func renderQuestion() {
         optionsStackView.arrangedSubviews.forEach { $0.removeFromSuperview() } // Clear previous options
         
@@ -214,17 +214,17 @@ class QuitNicotineViewController: UIViewController {
             fetchQuitPlanFromGPT() // End of questions
         }
     }
-
+    
     func skipToNextStep() {
         appState.step += 1
         renderQuestion()
     }
-
+    
     func renderSpecificDailyIntakeOptions(dailyIntakeRange: String) {
         optionsStackView.arrangedSubviews.forEach { $0.removeFromSuperview() } // Clear previous options
         
         questionLabel.text = "Please specify your daily intake more precisely."
-
+        
         let options: [String] = {
             switch dailyIntakeRange {
             case "1-5": return ["1", "2", "3", "4", "5"]
@@ -235,7 +235,7 @@ class QuitNicotineViewController: UIViewController {
             default: return []
             }
         }()
-
+        
         for option in options {
             let button = UIButton(type: .system)
             button.setTitle(option, for: .normal)
@@ -245,12 +245,12 @@ class QuitNicotineViewController: UIViewController {
             optionsStackView.addArrangedSubview(button)
         }
     }
-
+    
     func renderSpecificCostOptions(costRange: String) {
         optionsStackView.arrangedSubviews.forEach { $0.removeFromSuperview() } // Clear previous options
-
+        
         questionLabel.text = "Please specify the exact cost."
-
+        
         let options: [String] = {
             switch costRange {
             case "$1-$5": return ["$1", "$2", "$3", "$4", "$5"]
@@ -261,7 +261,7 @@ class QuitNicotineViewController: UIViewController {
             default: return []
             }
         }()
-
+        
         for option in options {
             let button = UIButton(type: .system)
             button.setTitle(option, for: .normal)
@@ -271,11 +271,11 @@ class QuitNicotineViewController: UIViewController {
             optionsStackView.addArrangedSubview(button)
         }
     }
-
+    
     func renderOptions(question: Question?) {
         guard let question = question else { return }
         questionLabel.text = question.text
-
+        
         for option in question.options {
             let button = UIButton(type: .system)
             button.setTitle(option, for: .normal)
@@ -285,7 +285,7 @@ class QuitNicotineViewController: UIViewController {
             optionsStackView.addArrangedSubview(button)
         }
     }
-
+    
     @objc func optionSelected(_ sender: UIButton) {
         guard let response = sender.titleLabel?.text else { return }
         handleResponse(response: response)
@@ -304,18 +304,18 @@ class QuitNicotineViewController: UIViewController {
         case 9: appState.quitTimeline = response
         default: break
         }
-
+        
         appState.responses["Q\(appState.step)"] = response
         appState.step += 1
         renderQuestion()
     }
-
+    
     // MARK: - Daily Progress and Overview Functions
-
+    
     @objc func showOverview() {
         optionsStackView.arrangedSubviews.forEach { $0.removeFromSuperview() } // Clear previous UI elements
         questionLabel.text = "Your Quit Plan Overview"
-
+        
         // Show Overall Timeline
         if !appState.overallTimeline.isEmpty {
             let timelineLabel = UILabel()
@@ -342,7 +342,7 @@ class QuitNicotineViewController: UIViewController {
             noDataLabel.textColor = .white
             optionsStackView.addArrangedSubview(noDataLabel)
         }
-
+        
         // Show Daily Goals
         if !appState.dailyGoals.isEmpty {
             let goalsLabel = UILabel()
@@ -351,7 +351,7 @@ class QuitNicotineViewController: UIViewController {
             goalsLabel.textColor = .white
             goalsLabel.textAlignment = .center
             optionsStackView.addArrangedSubview(goalsLabel)
-
+            
             for (index, goal) in appState.dailyGoals.enumerated() {
                 let dayLabel = UILabel()
                 dayLabel.text = "Day \(index + 1): \(goal.target) uses - \(goal.quote) at \(goal.strength)"
@@ -369,21 +369,16 @@ class QuitNicotineViewController: UIViewController {
             optionsStackView.addArrangedSubview(noGoalsLabel)
         }
     }
-
+    
     @objc func showDailyGoal() {
         let dailyGoalVC = DailyGoalViewController()
-        if appState.currentDay - 1 < appState.dailyGoals.count {
-            let todayGoal = appState.dailyGoals[appState.currentDay - 1]
-            dailyGoalVC.configure(with: (todayGoal.target, todayGoal.quote, todayGoal.strength))
-        } else {
-            print("No daily goal found for day \(appState.currentDay)")
-        }
+        dailyGoalVC.appState = appState // Pass appState to DailyGoalViewController
         navigationController?.pushViewController(dailyGoalVC, animated: true)
     }
-
-
+    
+    
     // MARK: - API Request and Quit Plan Fetching
-
+    
     func fetchQuitPlanFromGPT() {
         let openAIService = OpenAIService()
         openAIService.fetchQuitPlan(
@@ -392,6 +387,7 @@ class QuitNicotineViewController: UIViewController {
             brand: appState.brand,
             strength: appState.strength,
             dailyIntake: appState.dailyIntake,
+            specificDailyIntake: appState.specificDailyIntake,
             costRange: appState.costRange,
             quitTimeline: appState.quitTimeline
         ) { [weak self] quitPlan in
@@ -401,130 +397,51 @@ class QuitNicotineViewController: UIViewController {
             }
         }
     }
-
+    
+    
     func processQuitPlanResponse(_ quitPlan: String) {
-        guard let data = quitPlan.data(using: .utf8) else {
+        // Step 1: Clean up the response to isolate the JSON content
+        var cleanedQuitPlan = quitPlan
+        
+        // Remove any non-JSON content around the JSON data
+        if let jsonStartIndex = cleanedQuitPlan.range(of: "{")?.lowerBound,
+           let jsonEndIndex = cleanedQuitPlan.range(of: "}", options: .backwards)?.upperBound {
+            cleanedQuitPlan = String(cleanedQuitPlan[jsonStartIndex..<jsonEndIndex])
+        } else {
+            print("Failed to locate JSON boundaries in response")
+            return
+        }
+        
+        // Convert cleaned JSON string to Data
+        guard let data = cleanedQuitPlan.data(using: .utf8) else {
             print("Failed to convert quit plan to Data")
             return
         }
-
+        
+        // Step 2: Parse JSON
         do {
-            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+               let quitPlanDetails = json["quit_plan"] as? [String: Any],
+               let dailyGoalsArray = quitPlanDetails["daily_goals"] as? [[String: [String: String]]] {
+                
+                // Parse Daily Goals
                 appState.dailyGoals.removeAll()
-                appState.overallTimeline.removeAll()
-                
-                if let overallTimelineData = json["Overall Timeline Data"] as? [String: String] {
-                    for week in overallTimelineData.keys.sorted() {
-                        if let usageValue = overallTimelineData[week]?.components(separatedBy: " ").first, let usageInt = Int(usageValue) {
-                            appState.overallTimeline.append(usageInt)
-                        }
+                for dayData in dailyGoalsArray {
+                    if let dayInfo = dayData.values.first,
+                       let targetIntake = dayInfo["target_intake"],
+                       let motivationalQuote = dayInfo["motivational_quote"] {
+                        
+                        let intakeValue = Int(targetIntake.components(separatedBy: " ").first ?? "") ?? 0
+                        let strength = targetIntake.components(separatedBy: " at ").last ?? "Not specified"
+                        appState.dailyGoals.append((target: intakeValue, quote: motivationalQuote, strength: strength))
                     }
                 }
-                
-                if let dailyGoalsDict = json["Daily Goals"] as? [String: [String: Any]] {
-                    for day in dailyGoalsDict.keys.sorted() {
-                        if let goalData = dailyGoalsDict[day],
-                           let target = goalData["Target Intake"] as? String,
-                           let intakeValue = Int(target.components(separatedBy: " ").first ?? ""),
-                           let motivationalQuote = goalData["Motivational Quote"] as? String {
-                            let strength = goalData["Nicotine Strength"] as? String ?? "Not specified"
-                            appState.dailyGoals.append((target: intakeValue, quote: motivationalQuote, strength: strength))
-                        }
-                    }
-                }
+                print("Parsed daily goals successfully")
             } else {
-                print("Failed to parse quit plan response.")
+                print("Failed to parse quit plan response: Unexpected JSON structure")
             }
         } catch {
             print("Error parsing quit plan response: \(error)")
         }
-    }
-
-
-    
-    // MARK: - Daily Progress Functions
-        
-    @objc func showDailyProgress() {
-        optionsStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
-        
-        guard appState.currentDay <= appState.dailyGoals.count else {
-            displayCompletionMessage()
-            return
-        }
-        
-        let todayGoal = appState.dailyGoals[appState.currentDay - 1]
-        appState.dailyLimit = todayGoal.target
-        
-        questionLabel.text = "Today's Goal: \(todayGoal.target) uses at \(todayGoal.strength) strength"
-        
-        let usageLabel = UILabel()
-        usageLabel.text = "\(appState.dailyUsage) / \(appState.dailyLimit)"
-        usageLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
-        usageLabel.textAlignment = .center
-        usageLabel.textColor = .systemBlue
-        optionsStackView.addArrangedSubview(usageLabel)
-        
-        let incrementButton = UIButton(type: .system)
-        incrementButton.setTitle("Use Product", for: .normal)
-        incrementButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        incrementButton.tintColor = .white
-        incrementButton.backgroundColor = .systemBlue
-        incrementButton.layer.cornerRadius = 10
-        incrementButton.addTarget(self, action: #selector(incrementUsage), for: .touchUpInside)
-        optionsStackView.addArrangedSubview(incrementButton)
-        
-        let quoteLabel = UILabel()
-        quoteLabel.text = todayGoal.quote
-        quoteLabel.font = UIFont.italicSystemFont(ofSize: 16)
-        quoteLabel.textAlignment = .center
-        quoteLabel.textColor = .darkGray
-        quoteLabel.numberOfLines = 0
-        quoteLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(quoteLabel)
-        
-        NSLayoutConstraint.activate([
-            quoteLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            quoteLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            quoteLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
-        ])
-    }
-    
-    @objc func incrementUsage() {
-        guard appState.currentDay <= appState.dailyGoals.count else { return }
-        appState.dailyUsage += 1
-        
-        if let usageLabel = optionsStackView.arrangedSubviews.first(where: { $0 is UILabel }) as? UILabel {
-            usageLabel.text = "\(appState.dailyUsage) / \(appState.dailyLimit)"
-        }
-        
-        if appState.dailyUsage > appState.dailyLimit {
-            let alert = UIAlertController(
-                title: "Warning",
-                message: "You've exceeded your daily limit. Try to stick to the plan!",
-                preferredStyle: .alert
-            )
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert, animated: true)
-        }
-    }
-    
-    @objc func nextDay() {
-        if appState.currentDay < appState.dailyGoals.count {
-            appState.currentDay += 1
-            appState.dailyUsage = 0
-            showDailyProgress()
-        } else {
-            displayCompletionMessage()
-        }
-    }
-    
-    func displayCompletionMessage() {
-        let alert = UIAlertController(
-            title: "Congratulations!",
-            message: "You've completed the quit plan! Keep up the great work staying nicotine-free!",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
     }
 }
